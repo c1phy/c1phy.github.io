@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rce,ssti,cve on Marc-Oliver Munz</title>
+    <link>https://blog.munz4u.de/tags/rcessticve/</link>
+    <description>Recent content in rce,ssti,cve on Marc-Oliver Munz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>copy</copyright>
+    <lastBuildDate>Wed, 15 Nov 2023 14:12:02 +0100</lastBuildDate>
+    <atom:link href="https://blog.munz4u.de/tags/rcessticve/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2023-XXXXX RCE via SSTI</title>
+      <link>https://blog.munz4u.de/posts/2023/11/cve-2023-xxxxx-rce-via-ssti/</link>
+      <pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/11/cve-2023-xxxxx-rce-via-ssti/</guid>
+      <description>waiting for release</description>
+    </item>
+  </channel>
+</rss>

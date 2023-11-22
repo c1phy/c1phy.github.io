@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://blog.munz4u.de/posts/2023/11/cve-2023-xxxxx-rce-via-ssti/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/posts/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/rcessticve/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/posts/2023/04/cve-2023-25295-ato-via-xss/</loc>
+    <lastmod>2023-04-14T14:11:55+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/rxssatocve/</loc>
+    <lastmod>2023-04-14T14:11:55+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/about/</loc>
+  </url><url>
+    <loc>https://blog.munz4u.de/categories/</loc>
+  </url><url>
+    <loc>https://blog.munz4u.de/series/</loc>
+  </url>
+</urlset>

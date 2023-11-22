@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marc-Oliver Munz</title>
+    <link>https://blog.munz4u.de/</link>
+    <description>Recent content on Marc-Oliver Munz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>copy</copyright>
+    <lastBuildDate>Wed, 15 Nov 2023 14:12:02 +0100</lastBuildDate>
+    <atom:link href="https://blog.munz4u.de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2023-XXXXX RCE via SSTI</title>
+      <link>https://blog.munz4u.de/posts/2023/11/cve-2023-xxxxx-rce-via-ssti/</link>
+      <pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/11/cve-2023-xxxxx-rce-via-ssti/</guid>
+      <description>waiting for release</description>
+    </item>
+    <item>
+      <title>CVE-2023-25295 ATO via XSS</title>
+      <link>https://blog.munz4u.de/posts/2023/04/cve-2023-25295-ato-via-xss/</link>
+      <pubDate>Fri, 14 Apr 2023 14:11:55 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/04/cve-2023-25295-ato-via-xss/</guid>
+      <description>waiting for release</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://blog.munz4u.de/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.munz4u.de/about/</guid>
+      <description>Hello, I’m Marc-Oliver Munz, a 32-year-old IT Security professional in the Stuttgart region, Germany.
+IT security isn’t just my job—it’s my passion. Whether by day or night, I actively engage in securing high-level companies, driven by a genuine commitment to cybersecurity.
+My experiences extend globally, with participation in live hacking events connecting me with diverse cybersecurity professionals.
+This blog is a window into my cybersecurity adventures, sharing insights from reaching top positions on platforms to discovering fascinating bugs.</description>
+    </item>
+  </channel>
+</rss>

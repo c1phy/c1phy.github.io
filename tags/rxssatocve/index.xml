@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rxss,ato,cve on Marc-Oliver Munz</title>
+    <link>https://blog.munz4u.de/tags/rxssatocve/</link>
+    <description>Recent content in rxss,ato,cve on Marc-Oliver Munz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>copy</copyright>
+    <lastBuildDate>Fri, 14 Apr 2023 14:11:55 +0100</lastBuildDate>
+    <atom:link href="https://blog.munz4u.de/tags/rxssatocve/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2023-25295 ATO via XSS</title>
+      <link>https://blog.munz4u.de/posts/2023/04/cve-2023-25295-ato-via-xss/</link>
+      <pubDate>Fri, 14 Apr 2023 14:11:55 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/04/cve-2023-25295-ato-via-xss/</guid>
+      <description>waiting for release</description>
+    </item>
+  </channel>
+</rss>
