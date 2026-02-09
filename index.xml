@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Marc-Oliver Munz</title>
+    <link>https://blog.munz4u.de/</link>
+    <description>Recent content on Marc-Oliver Munz</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 15 Nov 2023 14:12:02 +0100</lastBuildDate>
+    <atom:link href="https://blog.munz4u.de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CVE-2024-24230 RCE via SSTI in Komm.One CMS 10.4.2.14</title>
+      <link>https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/</link>
+      <pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/</guid>
+      <description>&lt;style&gt;&#xA;  table {&#xA;    width: 100%;&#xA;    border-collapse: collapse;&#xA;    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */&#xA;  }&#xA;&#xA;  th, td {&#xA;    padding: 10px;&#xA;    border: 1px solid #ddd;&#xA;    text-align: left;&#xA;  }&#xA;&#xA;  @media screen and (max-width: 600px) {&#xA;    th, td {&#xA;      display: block;&#xA;      width: 100%;&#xA;      box-sizing: border-box;&#xA;    }&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;p&gt;I uncovered a critical Remote Code Execution vulnerability in Komm.One&amp;rsquo;s Content Management System version &lt;code&gt;10.4.2.14&lt;/code&gt;. Initially, I identified a Server-Side Template Injection (SSTI) flaw in the Velocity template engine, leading to the execution of arbitrary code and affecting several hundred sites. It is noteworthy that all vulnerable instances have now been fixed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CVE-2023-25295 ATO via rXSS in eVEWA3 Community</title>
+      <link>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</link>
+      <pubDate>Wed, 08 Mar 2023 12:00:00 +0100</pubDate>
+      <guid>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</guid>
+      <description>&lt;style&gt;&#xA;  table {&#xA;    width: 100%;&#xA;    border-collapse: collapse;&#xA;    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */&#xA;  }&#xA;&#xA;  th, td {&#xA;    padding: 10px;&#xA;    border: 1px solid #ddd;&#xA;    text-align: left;&#xA;  }&#xA;&#xA;  @media screen and (max-width: 600px) {&#xA;    th, td {&#xA;      display: block;&#xA;      width: 100%;&#xA;      box-sizing: border-box;&#xA;    }&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;&#xA;&lt;p&gt;The GRÜN eVEWA Community versions 31 to 53 were susceptible to a reflected Cross-Site Scripting (rXSS) vulnerability in the login form. This vulnerability enables attackers to acquire escalated privileges by submitting a crafted request to the login panel. To address this issue, a security patch labeled &amp;ldquo;H1&amp;rdquo; has been applied across versions 31 to 53.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://blog.munz4u.de/about/</link>
+      <pubDate>Wed, 01 Feb 2023 12:00:00 +0100</pubDate>
+      <guid>https://blog.munz4u.de/about/</guid>
+      <description>&lt;style&gt;&#xA;  table {&#xA;    width: 100%;&#xA;    border-collapse: collapse;&#xA;    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */&#xA;  }&#xA;&#xA;  th, td {&#xA;    padding: 10px;&#xA;    border: 1px solid #ddd;&#xA;    text-align: left;&#xA;  }&#xA;&#xA;  @media screen and (max-width: 600px) {&#xA;    th, td {&#xA;      display: block;&#xA;      width: 100%;&#xA;      box-sizing: border-box;&#xA;    }&#xA;  }&#xA;&lt;/style&gt;&#xA;&lt;p&gt;Hello, I’m Marc-Oliver Munz, a 35-year-old IT Security professional in the Stuttgart region, Germany.&lt;/p&gt;&#xA;&lt;p&gt;IT security isn’t just my job—it’s my passion. Whether by day or night, I actively engage in securing high-level companies, driven by a genuine commitment to cybersecurity.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

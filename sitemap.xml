@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/posts/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/rcessticvevelocity/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/</loc>
+    <lastmod>2023-11-15T14:12:02+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</loc>
+    <lastmod>2023-03-08T12:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/tags/rxssatocve/</loc>
+    <lastmod>2023-03-08T12:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/about/</loc>
+    <lastmod>2023-02-01T12:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.munz4u.de/categories/</loc>
+  </url><url>
+    <loc>https://blog.munz4u.de/series/</loc>
+  </url>
+</urlset>
