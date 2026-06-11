@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta name="generator" content="Hugo 0.163.0">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <script>(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+  <script>(function(){try{var l=localStorage.getItem('legalLang');if(!l){l=(navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en';}document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-lang','en');}})();</script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#070b12">
+
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+
+
+
+
+
+
+
+
+
+<title>Marc-Oliver Munz</title>
+<meta name="description" content="Marc-Oliver Munz (c1phy): IT security professional, ethical hacker and Intigriti Hacker Ambassador. Bug bounty writeups, CVEs and live hacking events.">
+<meta name="author" content="Marc-Oliver Munz">
+<link rel="canonical" href="https://blog.munz4u.de/">
+
+<meta property="og:title" content="Marc-Oliver Munz">
+<meta property="og:description" content="Marc-Oliver Munz (c1phy): IT security professional, ethical hacker and Intigriti Hacker Ambassador. Bug bounty writeups, CVEs and live hacking events.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.munz4u.de/">
+<meta property="og:site_name" content="Marc-Oliver Munz">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog.munz4u.de/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Marc-Oliver Munz">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marc-Oliver Munz">
+<meta name="twitter:description" content="Marc-Oliver Munz (c1phy): IT security professional, ethical hacker and Intigriti Hacker Ambassador. Bug bounty writeups, CVEs and live hacking events.">
+<meta name="twitter:image" content="https://blog.munz4u.de/og.png">
+<meta name="twitter:site" content="@marcolivermunz">
+<meta name="twitter:creator" content="@marcolivermunz">
+
+<link rel="icon" href="https://blog.munz4u.de/favicon.ico" sizes="64x64">
+<link rel="icon" href="https://blog.munz4u.de/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://blog.munz4u.de/apple-touch-icon.png">
+<link rel="manifest" href="https://blog.munz4u.de/site.webmanifest">
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://blog.munz4u.de/index.xml" title="Marc-Oliver Munz">
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","alternateName":"c1phy","image":"https://blog.munz4u.de/og.png","jobTitle":"Head of IT Security","name":"Marc-Oliver Munz","sameAs":["https://twitter.com/marcolivermunz","https://bsky.app/profile/munz4u.de","https://www.linkedin.com/in/marc-oliver-munz/","https://app.hackthebox.com/users/23795","https://github.com/c1phy"],"url":"https://blog.munz4u.de/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Marc-Oliver Munz","url":"https://blog.munz4u.de/"},"inLanguage":"en","name":"Marc-Oliver Munz","url":"https://blog.munz4u.de/"}</script>
+
+
+
+<link rel="stylesheet" href="https://blog.munz4u.de/css/main.min.3eb3ac6e15c0d5e5920e8696501a7f30f827794b95032c4d82fe55d3859912ec.css" integrity="sha256-PrOsbhXA1eWSDoaWUBp/MPgneUuVAyxNgv5V04WZEuw=">
+
+</head>
+<body class="is-home">
+  <div class="bgfx" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+<header class="nav" id="nav">
+  <div class="nav__scrim" id="navScrim" aria-hidden="true"></div>
+  <div class="nav__inner">
+    <a class="nav__brand" href="https://blog.munz4u.de/" aria-label="Home">
+      <span class="nav__prompt">~/c1phy/blog &gt;</span><span class="nav__cursor">_</span>
+    </a>
+
+    <nav class="nav__links" id="navLinks">
+      <a href="https://blog.munz4u.de/#intro">Intro</a>
+      <a href="https://blog.munz4u.de/#events">Events</a>
+      <a href="https://blog.munz4u.de/#honors">Recognition</a>
+      <a href="https://blog.munz4u.de/#writeups">Writeups</a>
+      <a href="https://blog.munz4u.de/#certs">Certs</a>
+      <a class="nav__cta" href="https://blog.munz4u.de/#contact">Contact</a>
+    </nav>
+
+    
+
+    <button class="nav__theme" id="themeToggle" aria-label="Toggle dark / light mode" title="Toggle theme">
+      <svg class="ico ico--sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM3 11h1a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2Zm17 0h1a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2ZM5.64 5.64a1 1 0 0 1 1.41 0l.71.71A1 1 0 1 1 6.34 7.76l-.7-.71a1 1 0 0 1 0-1.41Zm11.31 11.31a1 1 0 0 1 1.41 0l.71.71a1 1 0 0 1-1.41 1.41l-.71-.71a1 1 0 0 1 0-1.41ZM18.36 5.64a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0ZM7.05 16.95a1 1 0 0 1 0 1.41l-.71.71a1 1 0 0 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0Z"/></svg>
+      <svg class="ico ico--moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__progress" id="navProgress"></div>
+</header>
+
+  <main id="main">
+    
+
+
+<section class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container hero__inner reveal">
+    <div class="hero__main">
+    
+    <img class="hero__avatar" src="https://blog.munz4u.de/images/mom.jpg" alt="Portrait of Marc-Oliver Munz" width="136" height="136" loading="eager" decoding="async">
+    
+    <p class="hero__eyebrow"><span class="accent">$</span> whoami</p>
+    <h1 class="hero__name">Marc-Oliver Munz<span class="accent">.</span></h1>
+    <p class="hero__handle">aka <span class="accent" id="scramble">c1phy</span></p>
+    <p class="hero__tagline" id="typed" data-text="White-Hat // Elite-Hacker // HTB-Guru // Head of IT-Security // Freelancer">White-Hat <span class="accent">//</span> Elite-Hacker <span class="accent">//</span> HTB-Guru <span class="accent">//</span> Head of IT-Security <span class="accent">//</span> Freelancer</p>
+
+    <div class="hero__links hero__links--primary">
+      
+      <a class="chip chip--accent" href="https://app.intigriti.com/profile/c1phy" target="_blank" rel="noopener noreferrer"
+         data-tip="Hacker Ambassador Germany">
+        <svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg>
+        <span class="chip__k">Intigriti</span>
+        <span class="chip__badge">★</span>
+      </a>
+      
+      <a class="chip " href="https://hackerone.com/c1phy" target="_blank" rel="noopener noreferrer"
+         data-tip="Most Impactful Hacker 2025 (German H1 Club)">
+        <svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg>
+        <span class="chip__k">HackerOne</span>
+        <span class="chip__badge">★</span>
+      </a>
+      
+      <a class="chip " href="https://yeswehack.com/hunters/c1phy" target="_blank" rel="noopener noreferrer"
+         >
+        <svg class="ico" viewBox="0 0 36.94 48" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M14.8018 20.1125L0.31057 7.7749C0.12806 7.6289 0.0185547 7.37338 0.0185547 7.11787V0.876046C0.0185547 0.401521 0.420076 0 0.8946 0H6.51589C7.02692 0 7.39194 0.401521 7.39194 0.876046V4.12471L18.4885 13.5422L29.5486 4.12471V0.876046C29.5486 0.401521 29.9501 0 30.4246 0H36.0824C36.557 0 36.922 0.401521 36.922 0.876046V7.11787C36.922 7.37338 36.849 7.6289 36.63 7.7749L22.1752 20.1125V23.3977C22.1752 23.8722 21.7737 24.2738 21.2992 24.2738H15.6414C15.1668 24.2738 14.8018 23.8722 14.8018 23.3977V20.1125Z M7.39194 38.4007L14.8018 32.1224V28.8372C14.8018 28.3627 15.1668 27.9612 15.6414 27.9612H21.2992C21.7737 27.9612 22.1752 28.3627 22.1752 28.8372V32.1224L29.5486 38.4007V19.9673C29.5486 19.6753 29.6581 19.4562 29.8771 19.3102L35.4984 14.492C35.7539 14.273 36.1189 14.2 36.4475 14.346C36.7395 14.492 36.922 14.8205 36.922 15.149V47.1247C36.922 47.5992 36.557 48.0007 36.0824 48.0007H29.7311C29.5121 48.0007 29.3296 47.9277 29.1836 47.7817L18.4885 38.6927L7.79346 47.7817C7.61095 47.9277 7.42844 48.0007 7.20943 48.0007H0.8946C0.420076 48.0007 0.0185547 47.5992 0.0185547 47.1247V15.149C0.0185547 14.8205 0.201064 14.492 0.529581 14.346C0.858099 14.2 1.18662 14.273 1.44213 14.492L7.09992 19.2737C7.28243 19.4562 7.39194 19.6753 7.39194 19.9673V38.4007Z"/></svg>
+        <span class="chip__k">YesWeHack</span>
+        
+      </a>
+      
+    </div>
+    <div class="hero__links hero__links--social">
+      
+      
+      <a class="chip chip--ghost" href="https://twitter.com/marcolivermunz" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg>
+        <span class="chip__k">X</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://bsky.app/profile/munz4u.de" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+        <span class="chip__k">bluesky</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://www.linkedin.com/in/marc-oliver-munz/" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span class="chip__k">linkedin</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://app.hackthebox.com/users/23795" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m22.5106 6.4566.0008-.0123a.888.888 0 0 0-.2717-.6384c-.0084-.0084-.018-.0155-.0267-.0235-.0186-.0166-.0371-.0333-.0572-.0484-.0193-.0147-.04-.0276-.0607-.0406-.0096-.006-.0182-.0131-.0281-.0188L12.4576.1266a.891.891 0 0 0-.9223.0043L1.933 5.6744c-.0107.0062-.0203.014-.0307.0205-.0073.0047-.015.008-.0223.0128-.007.0047-.013.0106-.02.0155a.8769.8769 0 0 0-.147.1333l-.0026.003a.8872.8872 0 0 0-.2218.5847l.0009.014c-.0002.0088-.0015.0176-.0015.0264v11.0708c0 .3277.1802.6288.469.7836l9.5986 5.5417c.0076.0044.0158.0075.0236.0117a.8754.8754 0 0 0 .166.0687c.0134.004.0266.0083.0401.0117a.8793.8793 0 0 0 .072.0142c.0117.0019.0232.0045.0349.006a.835.835 0 0 0 .2157 0c.0117-.0015.0232-.0041.0348-.006a.9.9 0 0 0 .072-.0142c.0135-.0034.0267-.0077.04-.0117a.895.895 0 0 0 .0646-.0217.9134.9134 0 0 0 .1015-.047c.0078-.0042.016-.0072.0236-.0117l9.5986-5.5417a.8888.8888 0 0 0 .469-.7836V6.4779c0-.0071-.0012-.0142-.0014-.0213zM5.2543 6.0822l6.5367-3.774a.4182.4182 0 0 1 .4182 0l6.5366 3.774a.4182.4182 0 0 1 0 .7243l-6.5367 3.774a.4182.4182 0 0 1-.4182 0l-6.5366-3.774a.4182.4182 0 0 1 0-.7243zm5.6134 14.3449a.4172.4172 0 0 1-.626.3613L3.718 17.0218a.4173.4173 0 0 1-.2086-.3613V9.1279a.4172.4172 0 0 1 .6258-.3613l6.524 3.7666a.4172.4172 0 0 1 .2086.3614v7.5325zm9.623-3.7666a.4173.4173 0 0 1-.2086.3613l-6.5239 3.7666a.4172.4172 0 0 1-.6259-.3613v-7.5325c0-.149.0796-.2868.2087-.3614l6.5239-3.7666a.4172.4172 0 0 1 .6258.3613v7.5326z"/></svg>
+        <span class="chip__k">HackTheBox</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://github.com/c1phy" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        <span class="chip__k">GitHub</span>
+      </a>
+      
+      
+      
+      
+    </div>
+
+    <div class="hero__stats">
+      
+      <div class="stat" data-tip="VDP reports">
+        <span class="stat__v" data-count="400&#43;">400&#43;</span>
+        <span class="stat__l">VDP reports</span>
+      </div>
+      
+      <div class="stat" data-tip="Bug bounty reports">
+        <span class="stat__v" data-count="1.5k&#43;">1.5k&#43;</span>
+        <span class="stat__l">Bug bounty reports</span>
+      </div>
+      
+      <div class="stat" data-tip="Live hacking events">
+        <span class="stat__v" data-count="15&#43;">15&#43;</span>
+        <span class="stat__l">Live hacking events</span>
+      </div>
+      
+      <div class="stat" data-tip="Halls of Fame">
+        <span class="stat__v" data-count="10&#43;">10&#43;</span>
+        <span class="stat__l">Halls of Fame</span>
+      </div>
+      
+    </div>
+    </div>
+
+    
+    <aside class="hero__term" aria-hidden="true">
+      <div class="hterm">
+        <div class="hterm__bar">
+          <span class="hterm__dot"></span><span class="hterm__dot"></span><span class="hterm__dot"></span>
+          <span class="hterm__title">c1phy@blog: ~</span>
+        </div>
+        <pre class="hterm__body"><span class="hterm__line"><span class="accent">~ &gt;</span> id</span><span class="hterm__line hterm__out">uid=1000(c1phy) gid=1337(hackers) groups=31337(kaeferjaeger)</span><span class="hterm__line"><span class="accent">~ &gt;</span> ls hall-of-fame/</span><span class="hterm__line hterm__out">apple/  bsi/  heise/  mercedes/  telekom/  vdpbw/</span><span class="hterm__line"><span class="accent">~ &gt;</span> ./report --severity critical</span><span class="hterm__line hterm__out"><span class="accent">[ok]</span> submitted, waiting for triage...</span><span class="hterm__line"><span class="accent">~ &gt;</span> tail -f /var/lib/c1phy/skills.txt</span><span class="hterm__log" id="htermLog" data-skills="Bug Bounty|Security Operations Center (SOC)|Zero Trust|Ethical Hacking|SIEM|Identity &amp; Access Management (IAM)|Web Application Security|Extended Detection &amp; Response (XDR)|Next-Gen Firewalls (NGFW)|Penetration Testing|Threat Intelligence|Virtualization|Endpoint Detection &amp; Response (EDR)|Vulnerability Research|Network Access Control (NAC)|Responsible Disclosure|Intrusion Detection (IDS)|ISO 27001|Incident Response|Secure Access Service Edge (SASE)|Backup &amp; Recovery|Digital Forensics|Defense in Depth|Network Segmentation|Endpoint Security|SD-WAN|NIST CSF|Risk Management|Security Awareness|IT Audits|Cyber Defense"></span></pre>
+      </div>
+    </aside>
+  </div>
+
+  <a class="hero__scroll" href="#intro" aria-label="Scroll down"><span></span></a>
+</section>
+
+<section class="section" id="intro" data-num="01">
+  <div class="container intro__grid">
+    <div class="intro__head">
+      <p class="section__index reveal"><span class="accent">// 01</span> intro</p>
+      <h2 class="section__title reveal">Who I am</h2>
+    </div>
+    <figure class="intro__art reveal">
+      <img src="https://blog.munz4u.de/images/c1phy-web.webp" alt="c1phy character illustration" width="1188" height="1054" loading="lazy" decoding="async">
+      <figcaption>By a Belgian artist, celebrating my #1 spot on Intigriti</figcaption>
+    </figure>
+    <div class="intro__body">
+      <div class="prose reveal">
+        <p>I'm Marc-Oliver Munz, a 35-year-old IT security professional based in the Stuttgart region, Germany, currently working as <strong>Head of IT Security</strong>. Over 19 years I grew through IT, from 1st and 2nd level support to administration and finally leading information security. Today my focus is building resilient security infrastructure and fostering a security culture in organizations.</p>
+        <p>My expertise covers both sides of security: defensive work around SIEM, XDR, SOC, NGFW and ISO 27001 compliance across the full IT infrastructure, and offensive, ethical hacking. I have led bug bounty programs and regularly take part in renowned live hacking events worldwide, including for Intel and Yahoo.</p>
+        <p>As an <strong class="accent">Intigriti Hacker Ambassador for Germany</strong> I bring the community together, share knowledge and help newcomers get into bug bounty and security research, and I promote responsible disclosure. My work has been recognized in halls of fame at Apple, the German armed forces (VDPBw), the Federal Office for Information Security (BSI), Heise, Deutsche Telekom and Mercedes-Benz.</p>
+      </div>
+      <ul class="facts reveal">
+        <li>Head of IT Security</li>
+        <li>19+ years in IT</li>
+        <li>Ethical Hacking &amp; Bug Bounty</li>
+        <li>SIEM · XDR · SOC</li>
+        <li>NGFW &amp; Network Security</li>
+        <li>ISMS · ISO 27001 · NIST</li>
+        <li>Incident Response &amp; Forensics</li>
+        <li>Security Awareness &amp; Leadership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--alt" id="events" data-num="02">
+  <div class="container">
+    <p class="section__index reveal"><span class="accent">// 02</span> live hacking events</p>
+    <h2 class="section__title reveal">On the road</h2>
+    <p class="section__lead reveal">Live hacking events I took part in, from my first to what's coming up next.</p>
+
+    
+    
+    
+    
+    <nav class="year-nav reveal" aria-label="Jump to a year">
+      <a class="year-chip" href="#tl-year-2020" aria-label="Jump to 2020">2020</a><a class="year-chip" href="#tl-year-2021" aria-label="Jump to 2021">2021</a><a class="year-chip" href="#tl-year-2022" aria-label="Jump to 2022">2022</a><a class="year-chip" href="#tl-year-2023" aria-label="Jump to 2023">2023</a><a class="year-chip" href="#tl-year-2024" aria-label="Jump to 2024">2024</a><a class="year-chip" href="#tl-year-2025" aria-label="Jump to 2025">2025</a><a class="year-chip" href="#tl-year-2026" aria-label="Jump to 2026">2026</a>
+    </nav>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline__line" aria-hidden="true"><span class="timeline__fill" id="tlFill"></span></div>
+      
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2020" aria-hidden="true"><span>2020</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/kaeferjaeger.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Oct 2020</span>
+          </div>
+          <h3 class="tl-code">1st Kaeferjaeger LHE</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Mannheim, Germany</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">The first Kaeferjaeger live hacking event, where our German collective of around 40 hackers and security experts started its own self-organized LHE series.</p>
+          <a class="tl-video" href="https://www.youtube.com/watch?v=140jGlN14vs" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Watch aftermovie</span></a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2021" aria-hidden="true"><span>2021</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/kaeferjaeger.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Oct 2021</span>
+          </div>
+          <h3 class="tl-code">2nd Kaeferjaeger LHE</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Bonn, Germany</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">Our second self-organized live hacking event with Kaeferjaeger, a German collective of around 40 hackers and security experts that I am part of.</p>
+          <a class="tl-video" href="https://www.youtube.com/watch?v=w1vXZEFKsuY" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Watch aftermovie</span></a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2022" aria-hidden="true"><span>2022</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up0622.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result">Top 5</span>
+            <span class="tl-date">Jun 2022</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP0622</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/be.svg" alt="" width="20" height="15" loading="lazy">Leuven, Belgium</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">My first-ever Intigriti live hacking event, on-site in Leuven among experienced researchers from across the platform. A formative milestone that kicked off my live-hacking journey.</p>
+          <a class="tl-video" href="https://www.youtube.com/watch?v=4sNOP3Eaz6o" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Watch aftermovie</span></a>
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up0822.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result">Top 15</span>
+            <span class="tl-date">Aug 2022</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP0822</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/be.svg" alt="" width="20" height="15" loading="lazy">Antwerp, Belgium</p>
+          <span class="tl-company">Yahoo</span>
+          <p class="tl-note">Yahoo&#39;s first in-person live hacking event in over two years, run with Intigriti in Belgium, gathering 40 selected researchers from around the world. The scope centered on Yahoo&#39;s open-source search engine Vespa and core properties, capped off by the F1 Belgian Grand Prix.</p>
+          <a class="tl-video" href="https://www.youtube.com/watch?v=XeICEz81zuw" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Watch aftermovie</span></a>
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up1122.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"/></svg>Top 3</span>
+            <span class="tl-date">Nov 2022</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP1122</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/dk.svg" alt="" width="20" height="15" loading="lazy">Copenhagen, Denmark</p>
+          <span class="tl-company">Visma</span>
+          <p class="tl-note">An invite-only live hacking event in Copenhagen hosted by Visma and Intigriti, bringing together some of the best hackers worldwide for an intensive review of Visma&#39;s cloud software products.</p>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2023" aria-hidden="true"><span>2023</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up0623.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Jun 2023</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP0623</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/bg.svg" alt="" width="20" height="15" loading="lazy">Varna, Bulgaria</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">One of Intigriti&#39;s exclusive live hacking events, with around 30 hand-picked researchers. A remote submission and scoping phase in the run-up led into several on-site days in Varna, Bulgaria, including community and hacking days among the strongest hunters.</p>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up1023.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result">13th place</span>
+            <span class="tl-date">Oct 2023</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP1023</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/pt.svg" alt="" width="20" height="15" loading="lazy">Lisbon, Portugal</p>
+          <span class="tl-company">Intel</span>
+          <p class="tl-note">Knights of Elektron, an invite-only Intel Project Circuit Breaker live hacking event in Lisbon, run together with Intigriti. Selected among 100 elite hackers worldwide, qualified through a preliminary round to hack a brand-new Intel SaaS product.</p>
+          <a class="tl-video" href="https://www.youtube.com/watch?v=6z_EE9mHkHM" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Watch aftermovie</span></a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2024" aria-hidden="true"><span>2024</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/h1-germany.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">May 2024</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>German H1 Club Vol. 1</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Bochum, Germany</p>
+          <span class="tl-company">Tools for Humanity</span>
+          <p class="tl-note">The very first HackerOne Club Germany hacking meetup, held in Bochum and targeting the Tools for Humanity program. Open to all skill levels, with a remote component.</p>
+          
+          <a class="tl-video tl-link" href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-hackerone-hacking-meetup-tools-for-humanity-x-hackerone-club-germany/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/hackerhideout.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">May 2024</span>
+          </div>
+          <h3 class="tl-code">HH0524</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/nl.svg" alt="" width="20" height="15" loading="lazy">Utrecht, Netherlands</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">HackerHideout, an invite-only gathering where Europe&#39;s top bug bounty hunters, pentesters and ethical hackers meet in person. One venue, one day, plus pizza and war stories when the laptops close.</p>
+          
+          <a class="tl-video tl-link" href="https://hackerhideout.xyz/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2025" aria-hidden="true"><span>2025</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/h1-germany.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Feb 2025</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>German H1 Club Vol. 2</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Bochum, Germany</p>
+          <span class="tl-company">Grab</span>
+          <p class="tl-note">Hybrid edition of the German HackerOne Club meetup with an in-person day in Bochum, hacking the Grab program alongside the club community.</p>
+          
+          <a class="tl-video tl-link" href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-german-hackerone-club-hacking-meetup-vol-2-with-grab/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/h1-germany.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5q0 .807-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33 33 0 0 1 2.5.5m.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935m10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935"/></svg>1st place</span>
+            <span class="tl-date">Jun 2025</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>German H1 Club Vol. 3</h3>
+          <p class="tl-loc"><span class="tl-flag tl-flag--remote" aria-hidden="true"></span>Remote only</p>
+          <span class="tl-company">Exness</span>
+          <p class="tl-note">Third edition of the German HackerOne Club meetup with Exness, an intense two-week remote phase. I focused entirely on a single target and landed the event&#39;s most critical bug, awarded &#34;Maximum Impact and Maximum Bounty&#34; by Exness.</p>
+          
+          <a class="tl-video tl-link" href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-german-hackerone-club-hacking-meetup-vol-3-with-exness-summer-edition/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/lhe-1337up1125.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Nov 2025</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP1125</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/be.svg" alt="" width="20" height="15" loading="lazy">Leuven, Belgium</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">A high-stakes Intigriti live hacking event in Leuven against a major financial organization, with a technically complex mobile and web scope. We landed a strong placement and high-impact bugs, and I received Intigriti&#39;s silver and gold coins from the CEO for reaching the 250 and 500 milestones.</p>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      <div class="tl-year reveal" id="tl-year-2026" aria-hidden="true"><span>2026</span></div>
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/h1-germany.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Feb 2026</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>German H1 Club Vol. 5</h3>
+          <p class="tl-loc"><span class="tl-flag tl-flag--remote" aria-hidden="true"></span>Remote only</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">Fifth edition of the German HackerOne Club hacking meetup, held remotely. A week-long hacking phase on a partner program, with a leaderboard and a closing remote meetup day for networking and show &amp; tells.</p>
+          
+          <a class="tl-video tl-link" href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-german-hackerone-club-hacking-meetup-vol-5-remote/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/ambassador.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Apr 2026</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>Intigriti Bug Bounty Meetup</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Stuttgart, Germany</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">The first Intigriti Bug Bounty Meetup in Stuttgart, which I founded and hosted as Hacker Ambassador. A community evening at Shackspace bringing together everyone from complete beginners to seasoned hackers, with guest talks, shared hacking and a lot of exchange.</p>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/hackerone.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">May 2026</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>H1 In-Person Challenge</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Berlin, Germany</p>
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">An invite-only HackerOne challenge bringing together top researchers from around the world, centered on several on-site days in Berlin paired with a remote hacking phase. An intense competition on a single high-profile program with an unusually interesting, specialized scope.</p>
+          
+          
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--left reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/h1-germany.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result tl-result--none">Unranked</span>
+            <span class="tl-date">Jun 2026</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>German H1 Club Friendly Edition</h3>
+          <p class="tl-loc"><img class="tl-flag" src="https://blog.munz4u.de/flags/de.svg" alt="" width="20" height="15" loading="lazy">Bochum, Germany</p>
+          <span class="tl-company">Amazon</span>
+          <p class="tl-note">A friendly Netherlands vs Germany match between the Dutch and German HackerOne Clubs, run as an Ambassador World Cup warm-up. A remote hacking week closing with a hybrid day in Bochum.</p>
+          
+          <a class="tl-video tl-link" href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-hacking-meetup-friendly-edition-netherlands-vs-germany/cohost-germany-hackerone-club/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 3a1 1 0 0 0 0 2h3.59l-9.3 9.29a1 1 0 0 0 1.42 1.42L19 6.41V10a1 1 0 0 0 2 0V4a1 1 0 0 0-1-1h-6ZM5 5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 1 0-2 0v5H5V7h5a1 1 0 0 0 0-2H5Z"/></svg><span>Event page</span></a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div class="tl-item tl-item--right reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card">
+          <span class="tl-wm" style="--wm: url('/images/intigriti.png')" aria-hidden="true"></span>
+          <div class="tl-head">
+            <span class="tl-result">Upcoming</span>
+            <span class="tl-date">Nov 2026</span>
+          </div>
+          <h3 class="tl-code"><span class="tl-host"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>1337UP1126</h3>
+          
+          <span class="tl-company tl-company--redacted">Undisclosed</span>
+          <p class="tl-note">An upcoming Intigriti live hacking event later this year, one of the exclusive on-site editions I look forward to most. Further details to be announced.</p>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="honors" data-num="03">
+  <div class="container">
+    <p class="section__index reveal"><span class="accent">// 03</span> recognition</p>
+    <h2 class="section__title reveal">Recognition</h2>
+    <p class="section__lead reveal">Ambassador roles, awards and hall-of-fame acknowledgements.</p>
+
+    
+    
+    
+    
+    
+    
+    
+    <div class="rec-filter reveal" role="group" aria-label="Filter recognitions by type" hidden>
+      <button class="rec-chip is-active" type="button" data-filter="all" aria-pressed="true">All <span class="rec-chip__n">18</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="hall-of-fame" aria-pressed="false">Hall of Fame <span class="rec-chip__n">6</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="award" aria-pressed="false">Awards <span class="rec-chip__n">6</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="ambassador" aria-pressed="false">Ambassador <span class="rec-chip__n">1</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="community" aria-pressed="false">Community <span class="rec-chip__n">2</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="interview" aria-pressed="false">Interviews <span class="rec-chip__n">2</span></button>
+      
+      <button class="rec-chip" type="button" data-filter="feature" aria-pressed="false">Feature <span class="rec-chip__n">1</span></button>
+      
+    </div>
+
+    <div class="cards">
+      
+      <article class="card  reveal" data-type="community">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--community">community</span>
+          <span class="card__date">Apr 2026</span>
+        </div>
+        <h3 class="card__title">
+          
+          Founded the Intigriti Bug Bounty Meetup Stuttgart
+        </h3>
+        <p class="card__issuer">Intigriti Ambassador</p>
+        <p class="card__desc">Organized and hosted the first Intigriti Bug Bounty Meetup in Stuttgart as Hacker Ambassador, bringing newcomers and experienced hackers together for talks, hands-on hacking and networking.</p>
+        
+      </article>
+      
+      <article class="card card--featured reveal" data-type="ambassador">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--ambassador">ambassador</span>
+          <span class="card__date">Mar 2026</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.intigriti.com/blog/business-insights/intigriti-launches-new-global-hacker-ambassador-program" target="_blank" rel="noopener noreferrer">Intigriti Hacker Ambassador (Germany)</a>
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Selected as the official Intigriti Hacker Ambassador for Germany, based on continuous platform performance, high-impact findings and active participation in live hacking events. The role promotes responsible disclosure and represents the platform within the community.</p>
+        
+      </article>
+      
+      <article class="card card--featured reveal" data-type="award">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Feb 2026</span>
+        </div>
+        <h3 class="card__title">
+          
+          German H1 Club - Most Impactful Hacker 2025
+        </h3>
+        <p class="card__issuer">HackerOne (German H1 Club)</p>
+        <p class="card__desc">Awarded Most Impactful Hacker 2025 for the highest individual bounty across all German H1 Club editions of the year. Recognizes the single most security-relevant and financially significant finding within the series, including programs such as Exness.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="interview">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--interview">interview</span>
+          <span class="card__date">Feb 2026</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.intigriti.com/blog/business-insights/hacker-spotlight-from-curiosity-to-critical-bugs-interview-with-marc-oliver-munz-c1phy" target="_blank" rel="noopener noreferrer">Hacker Spotlight: From curiosity to critical bugs</a>
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Featured in Intigriti&#39;s Ethical Hacker Insights series, talking about my journey into bug bounty, notable findings and the mindset behind finding critical vulnerabilities.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="award">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Jun 2025</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://h1.community/events/details/hackerone-germany-hackerone-club-presents-german-hackerone-club-hacking-meetup-vol-3-with-exness-summer-edition/" target="_blank" rel="noopener noreferrer">1st Place - German H1 Club Vol. 3 (Exness)</a>
+        </h3>
+        <p class="card__issuer">Exness / HackerOne German Club</p>
+        <p class="card__desc">Found the most critical bug of the 3rd virtual HackerOne Germany Club meetup (Jun 2025), awarded &#34;Maximum Impact and Maximum Bounty&#34; by Exness and the highest payout of the event. The event paid out over $94,000 in bounties, a record for the series.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="feature">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--feature">feature</span>
+          <span class="card__date">May 2025</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.intigriti.com/researchers/blog/bug-bytes/intigriti-bug-bytes-224-may-2025" target="_blank" rel="noopener noreferrer">SQLTimer featured in Intigriti Bug Bytes #224</a>
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">My open-source tool SQLTimer, a fast Go scanner for time-based SQL injection, was featured in Intigriti&#39;s Bug Bytes newsletter (issue #224) as a useful addition to the bug bounty tooling community.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="award">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Mar 2025</span>
+        </div>
+        <h3 class="card__title">
+          
+          Emerald Legend (500 valid submissions)
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Reached the Intigriti Emerald Legend milestone for 500 valid submissions, reflecting the sustained volume and quality of accepted vulnerability reports over years of continuous research on the platform.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="community">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.207 0c-.4836 0-.8774.1018-1.1823.3002-.3044.2003-.4592.4627-.4592.7798v21.809c0 .2766.1581.5277.4752.7609.315.2335.7031.3501 1.1664.3501.4427 0 .8306-.1166 1.1678-.3501.3352-.231.5058-.4843.5058-.761V1.0815c0-.319-.1623-.5769-.4893-.7813C8.0644.1018 7.6702 0 7.207 0zm9.5234 8.662c-.4836 0-.8717.0981-1.1683.3007l-4.439 2.7822c-.1988.1861-.2841.4687-.2473.855.0342.3826.2108.747.5238 1.0907.3145.346.6662.5626 1.0684.6547.3963.0899.6973.041.8962-.143l1.7551-1.0951v9.7817c0 .2767.1522.5278.4607.761.3007.2335.6873.3501 1.1504.3501.463 0 .863-.1166 1.1983-.3501.3371-.2332.5058-.4843.5058-.761V9.7381c0-.3193-.165-.577-.4898-.7754-.3252-.2026-.7288-.3007-1.2143-.3007z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--community">community</span>
+          <span class="card__date">Oct 2024</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.hackerone.com/hackers/ambassador-world-cup" target="_blank" rel="noopener noreferrer">Ambassador World Cup - Sweet Sixteen (Team Germany)</a>
+        </h3>
+        <p class="card__issuer">HackerOne</p>
+        <p class="card__desc">Active member of Team Germany in HackerOne&#39;s global Ambassador World Cup, a team-based live hacking tournament. Advanced to the Sweet Sixteen round against teams from around the world.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Jul 2024</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.telekom.com/en/company/data-privacy-and-security/news/acknowledgements-358300#M" target="_blank" rel="noopener noreferrer">Deutsche Telekom</a>
+        </h3>
+        <p class="card__issuer">Deutsche Telekom</p>
+        <p class="card__desc">Discovered a broken access control flaw in a GraphQL interface of a Deutsche Telekom website; query manipulation allowed access to personal data (PII). Acknowledged in the Telekom Hall of Fame.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Jan 2024</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.bsi.bund.de/DE/IT-Sicherheitsvorfall/IT-Schwachstellen/Hall_of_Fame/Hall_of_Fame_node.html" target="_blank" rel="noopener noreferrer">Federal Office for Information Security (BSI)</a>
+        </h3>
+        <p class="card__issuer">BSI</p>
+        <p class="card__desc">Continuous reporting to the Federal Office for Information Security since late 2022: 388 reported vulnerabilities, 290 of them already confirmed and fixed, actively strengthening cybersecurity.</p>
+        
+      </article>
+      
+      <article class="card card--featured reveal" data-type="award">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Jul 2023</span>
+        </div>
+        <h3 class="card__title">
+          
+          Intigriti #1 Platform Leaderboard (M4573R R007)
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Reached #1 on the Intigriti platform quarterly leaderboard as M4573R R007, alongside the Payload Master badge (top 10 platform). A milestone marking sustained top performance across programs.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Jan 2023</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.bundeswehr.de/de/security-policy/danksagung" target="_blank" rel="noopener noreferrer">Bundeswehr VDP (VDPBw)</a>
+        </h3>
+        <p class="card__issuer">VDPBw</p>
+        <p class="card__desc">Awarded the VDPBw coin for 39 confirmed vulnerabilities, including ATO, information disclosure, LFI, SQL injection, SSRF and cross-site scripting. Recognizes reporting a broad range of security threats.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Jan 2023</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.heise.de/Die-Hall-of-Fame-7515148.html" target="_blank" rel="noopener noreferrer">Heise Group</a>
+        </h3>
+        <p class="card__issuer">Heise Group</p>
+        <p class="card__desc">Listed in the Heise Hall of Fame for reporting more than 10 security vulnerabilities, contributing to the security of Heise&#39;s digital platforms.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="interview">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--interview">interview</span>
+          <span class="card__date">Jun 2022</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.youtube.com/watch?v=cANNQeLnqf8" target="_blank" rel="noopener noreferrer">Hacker Interview</a>
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Video interview with Intigriti, filmed at the 1337UP0622 live hacking event in Leuven, on my path into ethical hacking and bug bounty.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="award">
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="99.36 0.36 100.01 100.19" aria-hidden="true" focusable="false"><path fill="currentColor" d="M 120.144,51.288 A 15.469,15.469 0 0,1 109.076,27.514 l 27.366,13.708 l 8.075,-4.045 C 133.917,31.866 107.256,18.514 107.256,18.514 l -1.844,1.99 a 22.7,22.7 0 0,0 14.963,38.074 A 56.526,56.526 0 0,1 120.144,51.288 Z M 193.326,20.504 l -1.844,-1.99 l -59.433,29.769 a 34.623,34.623 0 0,1 -6.731,2.553 c -0.294,0.076 -0.566,0.145 -0.819,0.2 a 52.936,52.936 0 0,0 0.432,9.211 a 60.122,60.122 0 0,0 1.187,6.127 A 59.387,59.387 0 0,0 137.867,89.714 a 60.068,60.068 0 0,0 9.28,9.081 l 2.235,1.757 l 2.235,-1.757 a 59.834,59.834 0 0,0 16.41,-20 a 59.234,59.234 0 0,0 6.043,-20.405 l 0,0 a 52.756,52.756 0 0,0 0.214,-7.336 c -0.267,-0.061 -0.554,-0.13 -0.872,-0.214 a 34.905,34.905 0 0,1 -6.732,-2.553 l -4.4,-2.2 l -8.076,4.045 l 9.235,4.627 q 1.75,0.878 3.555,1.584 a 52.467,52.467 0 0,1 -1.367,8.293 a 51.759,51.759 0 0,1 -4.06,10.9 a 52.505,52.505 0 0,1 -12.193,15.725 a 53.088,53.088 0 0,1 -5.928,-6.127 a 52.041,52.041 0 0,1 -11.695,-28.8 q 1.784,-0.7 3.524,-1.573 c 1.74,-0.873 47.431,-23.757 54.37,-27.236 a 15.473,15.473 0 0,1 -11.018,23.765 a 57.8,57.8 0 0,1 -0.222,7.29 a 22.7,22.7 0 0,0 14.91,-38.066 Z M 162.63,16.34 a 15.714,15.714 0 0,1 14.087,-8.744 L 176.717,0.359 a 22.934,22.934 0 0,0 -18.212,8.989 c -0.291,0.379 -0.566,0.765 -0.834,1.16 a 59.472,59.472 0 0,0 -6.054,-5.465 l -2.234,-1.757 l -2.312,1.814 a 60.965,60.965 0 0,0 -5.534,4.944 c -0.157,0.157 -0.311,0.318 -0.467,0.478 c -0.268,-0.4 -0.551,-0.792 -0.846,-1.179 A 22.934,22.934 0 0,0 122.011,0.359 l 0,7.233 a 15.71,15.71 0 0,1 14.1,8.771 q -0.913,1.223 -1.757,2.484 a 59.05,59.05 0 0,0 -3.769,6.5 l 6.467,3.238 a 52.183,52.183 0 0,1 9.632,-13.452 c 0.865,-0.876 1.769,-1.726 2.694,-2.541 a 52.633,52.633 0 0,1 12.319,15.985 l 6.468,-3.241 A 59.149,59.149 0 0,0 162.63,16.34 Z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Apr 2022</span>
+        </div>
+        <h3 class="card__title">
+          
+          Intigriti #1 Program Leaderboard (R007 Ch13f)
+        </h3>
+        <p class="card__issuer">Intigriti</p>
+        <p class="card__desc">Reached #1 on an Intigriti program quarterly leaderboard as R007 Ch13f, ranking ahead of all other researchers competing on that program during the quarter.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Feb 2022</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://support.apple.com/en-us/HT213636" target="_blank" rel="noopener noreferrer">Apple web server security acknowledgements</a>
+        </h3>
+        <p class="card__issuer">Apple</p>
+        <p class="card__desc">Acknowledged multiple times in Apple&#39;s web server security acknowledgements for continuous contributions to the security of Apple&#39;s systems across several reported issues.</p>
+        <p class="card__refs"><a class="link-mono" href="https://support.apple.com/de-de/102774" target="_blank" rel="noopener noreferrer">Second acknowledgement →</a></p>
+      </article>
+      
+      <article class="card  reveal" data-type="hall-of-fame">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--hall-of-fame">hall of fame</span>
+          <span class="card__date">Feb 2022</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://www.mercedes-benz.com/en/whitehat/" target="_blank" rel="noopener noreferrer">Mercedes-Benz AG VDP</a>
+        </h3>
+        <p class="card__issuer">Mercedes-Benz AG</p>
+        <p class="card__desc">Identified a critical vulnerability at Mercedes-Benz in 2022, leading to inclusion in the Mercedes-Benz Hall of Fame for responsible disclosure.</p>
+        
+      </article>
+      
+      <article class="card  reveal" data-type="award">
+        
+        
+        
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m22.5106 6.4566.0008-.0123a.888.888 0 0 0-.2717-.6384c-.0084-.0084-.018-.0155-.0267-.0235-.0186-.0166-.0371-.0333-.0572-.0484-.0193-.0147-.04-.0276-.0607-.0406-.0096-.006-.0182-.0131-.0281-.0188L12.4576.1266a.891.891 0 0 0-.9223.0043L1.933 5.6744c-.0107.0062-.0203.014-.0307.0205-.0073.0047-.015.008-.0223.0128-.007.0047-.013.0106-.02.0155a.8769.8769 0 0 0-.147.1333l-.0026.003a.8872.8872 0 0 0-.2218.5847l.0009.014c-.0002.0088-.0015.0176-.0015.0264v11.0708c0 .3277.1802.6288.469.7836l9.5986 5.5417c.0076.0044.0158.0075.0236.0117a.8754.8754 0 0 0 .166.0687c.0134.004.0266.0083.0401.0117a.8793.8793 0 0 0 .072.0142c.0117.0019.0232.0045.0349.006a.835.835 0 0 0 .2157 0c.0117-.0015.0232-.0041.0348-.006a.9.9 0 0 0 .072-.0142c.0135-.0034.0267-.0077.04-.0117a.895.895 0 0 0 .0646-.0217.9134.9134 0 0 0 .1015-.047c.0078-.0042.016-.0072.0236-.0117l9.5986-5.5417a.8888.8888 0 0 0 .469-.7836V6.4779c0-.0071-.0012-.0142-.0014-.0213zM5.2543 6.0822l6.5367-3.774a.4182.4182 0 0 1 .4182 0l6.5366 3.774a.4182.4182 0 0 1 0 .7243l-6.5367 3.774a.4182.4182 0 0 1-.4182 0l-6.5366-3.774a.4182.4182 0 0 1 0-.7243zm5.6134 14.3449a.4172.4172 0 0 1-.626.3613L3.718 17.0218a.4173.4173 0 0 1-.2086-.3613V9.1279a.4172.4172 0 0 1 .6258-.3613l6.524 3.7666a.4172.4172 0 0 1 .2086.3614v7.5325zm9.623-3.7666a.4173.4173 0 0 1-.2086.3613l-6.5239 3.7666a.4172.4172 0 0 1-.6259-.3613v-7.5325c0-.149.0796-.2868.2087-.3614l6.5239-3.7666a.4172.4172 0 0 1 .6258.3613v7.5326z"/></svg></span>
+        <div class="card__top">
+          <span class="tag tag--award">award</span>
+          <span class="card__date">Apr 2018</span>
+        </div>
+        <h3 class="card__title">
+          
+          <a href="https://app.hackthebox.com/users/23795" target="_blank" rel="noopener noreferrer">Guru rank at Hack The Box</a>
+        </h3>
+        <p class="card__issuer">Hack The Box</p>
+        <p class="card__desc">Reached the Guru rank on Hack The Box (HTB-Guru), a long-standing personal milestone reflecting deep hands-on offensive security skills.</p>
+        
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--alt" id="writeups" data-num="04">
+  <div class="container">
+    <p class="section__index reveal"><span class="accent">// 04</span> writeups</p>
+    <h2 class="section__title reveal">CVEs &amp; research</h2>
+    <p class="section__lead reveal">Selected disclosures. Some are referenced by NVD/NIST.</p>
+
+    <div class="cards cards--showcase">
+      
+      <a class="postcard reveal postcard--featured" href="https://blog.munz4u.de/posts/2023/11/cve-2024-24230-rce-via-ssti-in-komm.one-cms-10.4.2.14/">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 0 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 0 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/></svg></span>
+        <span class="postcard__date"><span class="postcard__flag">Featured</span> Nov 15, 2023</span>
+        <h3 class="postcard__title">CVE-2024-24230 RCE via SSTI in Komm.One CMS 10.4.2.14</h3>
+        <p class="postcard__excerpt">How I found and exploited CVE-2024-24230: a Server-Side Template Injection (SSTI) in the Apache Velocity engine of Komm.One CMS 10.4.2.14, escalated to remote code execution (RCE).</p>
+        <div class="postcard__tags"><span>#rce</span><span>#ssti</span><span>#cve</span><span>#velocity</span></div>
+        <span class="postcard__more">read writeup <span class="accent">→</span></span>
+      </a>
+      
+      <a class="postcard reveal" href="https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 0 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 0 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/></svg></span>
+        <span class="postcard__date">Mar 8, 2023</span>
+        <h3 class="postcard__title">CVE-2023-25295 ATO via rXSS in eVEWA3 Community</h3>
+        
+        <div class="postcard__tags"><span>#rxss</span><span>#ato</span><span>#cve</span></div>
+        <span class="postcard__more">read writeup <span class="accent">→</span></span>
+      </a>
+      
+    </div>
+    <p class="section__foot reveal"><a class="link-mono" href="https://blog.munz4u.de/posts/">all posts →</a></p>
+  </div>
+</section>
+
+
+<section class="section" id="certs" data-num="05">
+  <div class="container">
+    <p class="section__index reveal"><span class="accent">// 05</span> certifications</p>
+    <h2 class="section__title reveal">Certifications</h2>
+
+    <div class="certs">
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">ISC2</span>
+        </div>
+        <ul class="cert__list">
+          <li class="li--wip">CISSP (in progress)</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">CloudBreach</span>
+        </div>
+        <ul class="cert__list">
+          <li>Offensive Azure Security Professional (OASP)</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">Cisco Systems</span>
+        </div>
+        <ul class="cert__list">
+          <li>CCNA Routing and Switching</li><li>CCENT (ICND1)</li><li>CCNA Security</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">Microsoft</span>
+        </div>
+        <ul class="cert__list">
+          <li>MCSE: SharePoint</li><li>MCSA: Windows Server 2012</li><li>MCSA: Windows Server 2008</li><li>Microsoft Certified Professional (MCP)</li><li>MCITP: Enterprise Administrator (Windows Server 2008)</li><li>MCTS: Windows Server 2008 Active Directory</li><li>MCTS: Windows Server 2008 Network Infrastructure</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">VMware</span>
+        </div>
+        <ul class="cert__list">
+          <li>VCP5-DCV</li><li>vSphere: Install, Configure, Manage</li><li>vSphere: Data Center Virtualization</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">ITIL</span>
+        </div>
+        <ul class="cert__list">
+          <li>ITIL Foundation</li><li>ITIL v2011</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">DocuWare</span>
+        </div>
+        <ul class="cert__list">
+          <li>DocuWare System Consultant (DSC)</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">Hewlett Packard Enterprise</span>
+        </div>
+        <ul class="cert__list">
+          <li>H9P97S Managing HPE 3PAR StoreServ III</li>
+        </ul>
+      </div>
+      
+      <div class="cert reveal">
+        <span class="rec-wm" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+        <div class="cert__head">
+          <span class="cert__seal" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/></svg></span>
+          <span class="cert__org">Industrie- und Handelskammer</span>
+        </div>
+        <ul class="cert__list">
+          <li>Fachinformatiker Systemintegration</li><li>IT-Sicherheitsbeauftragter</li><li>Berufs- und Arbeitspaedagogische Eignung (AEVO)</li><li>Bachelor Professional of IT Business Management (CCI)</li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--alt" id="contact" data-num="06">
+  <div class="container contact reveal">
+    <p class="section__index"><span class="accent">// 06</span> contact</p>
+    <h2 class="section__title">Let's talk</h2>
+    <p class="section__lead">Available on request for freelance security work: security consulting, penetration testing and more. Reach out.</p>
+    
+    
+    <div class="contact__cta">
+      <span class="cta-mail">
+        <a class="cta-mail__addr email-link" href="#" rel="nofollow" data-e="c2VjdXJpdHlAbXVuejR1LmRl">
+          <svg class="ico" viewBox="1.5 4 21 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25H3.75a2.25 2.25 0 0 1-2.25-2.25V6.75Zm2.04-.75L12 11.69 20.46 6H3.54Zm17.46 1.32-8.49 5.66a1.5 1.5 0 0 1-1.68 0L3 7.32V17.25c0 .41.34.75.75.75h16.5c.41 0 .75-.34.75-.75V7.32Z"/></svg>
+          <span class="obf" data-o="c2VjdXJpdHlAbXVuejR1LmRl">email</span>
+        </a>
+        <button class="cta-mail__copy" type="button" data-e="c2VjdXJpdHlAbXVuejR1LmRl" aria-label="Copy email address" title="Copy email address" hidden>
+          <span class="cta-mail__ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></span>
+          <span class="cta-mail__ok" aria-hidden="true">✓</span>
+        </button>
+      </span>
+    </div>
+    
+    <div class="contact__links">
+      
+      
+      <a class="chip chip--ghost" href="https://twitter.com/marcolivermunz" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg>
+        <span class="chip__k">X</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://bsky.app/profile/munz4u.de" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg>
+        <span class="chip__k">bluesky</span>
+      </a>
+      
+      
+      
+      <a class="chip chip--ghost" href="https://www.linkedin.com/in/marc-oliver-munz/" target="_blank" rel="noopener noreferrer">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <span class="chip__k">linkedin</span>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    <p class="contact__hint"><span class="accent">$</span> found a vulnerability on this site? <a class="link-mono" href="https://blog.munz4u.de/.well-known/security.txt">.well-known/security.txt</a></p>
+  </div>
+</section>
+
+
+  </main>
+  <footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand"><a href="https://blog.munz4u.de/#top" class="footer__top" aria-label="Back to top"><span class="accent">~/c1phy</span></a> // Marc-Oliver Munz</div>
+    <div class="footer__social">
+      
+      <a href="https://blog.munz4u.de/index.xml" title="RSS feed" aria-label="RSS feed"><svg class="ico" viewBox="4 4 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 4.95a10.61 10.61 0 0 1 10.61 10.61h-2.83A7.78 7.78 0 0 0 4 12.22V9.39z"/></svg></a>
+      
+      
+      
+      <a href="https://twitter.com/marcolivermunz" target="_blank" rel="noopener noreferrer" title="X" aria-label="X"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></a>
+      
+      
+      
+      <a href="https://bsky.app/profile/munz4u.de" target="_blank" rel="noopener noreferrer" title="bluesky" aria-label="bluesky"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></a>
+      
+      
+      
+      <a href="https://www.linkedin.com/in/marc-oliver-munz/" target="_blank" rel="noopener noreferrer" title="linkedin" aria-label="linkedin"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      
+      
+      
+      <a href="https://app.hackthebox.com/users/23795" target="_blank" rel="noopener noreferrer" title="HackTheBox" aria-label="HackTheBox"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="m22.5106 6.4566.0008-.0123a.888.888 0 0 0-.2717-.6384c-.0084-.0084-.018-.0155-.0267-.0235-.0186-.0166-.0371-.0333-.0572-.0484-.0193-.0147-.04-.0276-.0607-.0406-.0096-.006-.0182-.0131-.0281-.0188L12.4576.1266a.891.891 0 0 0-.9223.0043L1.933 5.6744c-.0107.0062-.0203.014-.0307.0205-.0073.0047-.015.008-.0223.0128-.007.0047-.013.0106-.02.0155a.8769.8769 0 0 0-.147.1333l-.0026.003a.8872.8872 0 0 0-.2218.5847l.0009.014c-.0002.0088-.0015.0176-.0015.0264v11.0708c0 .3277.1802.6288.469.7836l9.5986 5.5417c.0076.0044.0158.0075.0236.0117a.8754.8754 0 0 0 .166.0687c.0134.004.0266.0083.0401.0117a.8793.8793 0 0 0 .072.0142c.0117.0019.0232.0045.0349.006a.835.835 0 0 0 .2157 0c.0117-.0015.0232-.0041.0348-.006a.9.9 0 0 0 .072-.0142c.0135-.0034.0267-.0077.04-.0117a.895.895 0 0 0 .0646-.0217.9134.9134 0 0 0 .1015-.047c.0078-.0042.016-.0072.0236-.0117l9.5986-5.5417a.8888.8888 0 0 0 .469-.7836V6.4779c0-.0071-.0012-.0142-.0014-.0213zM5.2543 6.0822l6.5367-3.774a.4182.4182 0 0 1 .4182 0l6.5366 3.774a.4182.4182 0 0 1 0 .7243l-6.5367 3.774a.4182.4182 0 0 1-.4182 0l-6.5366-3.774a.4182.4182 0 0 1 0-.7243zm5.6134 14.3449a.4172.4172 0 0 1-.626.3613L3.718 17.0218a.4173.4173 0 0 1-.2086-.3613V9.1279a.4172.4172 0 0 1 .6258-.3613l6.524 3.7666a.4172.4172 0 0 1 .2086.3614v7.5325zm9.623-3.7666a.4173.4173 0 0 1-.2086.3613l-6.5239 3.7666a.4172.4172 0 0 1-.6259-.3613v-7.5325c0-.149.0796-.2868.2087-.3614l6.5239-3.7666a.4172.4172 0 0 1 .6258.3613v7.5326z"/></svg></a>
+      
+      
+      
+      <a href="https://github.com/c1phy" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+      
+      
+      
+      <a class="email-link" href="#" rel="nofollow" title="email" aria-label="email" data-e="c2VjdXJpdHlAbXVuejR1LmRl"><svg class="ico" viewBox="1.5 4 21 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5a2.25 2.25 0 0 1 2.25 2.25v10.5a2.25 2.25 0 0 1-2.25 2.25H3.75a2.25 2.25 0 0 1-2.25-2.25V6.75Zm2.04-.75L12 11.69 20.46 6H3.54Zm17.46 1.32-8.49 5.66a1.5 1.5 0 0 1-1.68 0L3 7.32V17.25c0 .41.34.75.75.75h16.5c.41 0 .75-.34.75-.75V7.32Z"/></svg></a>
+      
+      
+    </div>
+    <div class="footer__meta">
+      <span>&copy; 2026 Marc-Oliver Munz</span>
+      <span class="footer__legal"><a href="https://blog.munz4u.de/impressum/">Legal Notice</a></span>
+      <span class="footer__legal"><a href="https://blog.munz4u.de/datenschutz/">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+
+  <a class="to-top" href="#top" id="toTop" aria-label="Back to top">↑</a>
+
+  
+  <script src="https://blog.munz4u.de/js/main.8c97edec3758b290dfea994a53be9129e5602132960e2ae24e52ad79d10fd212.js" integrity="sha256-jJft7DdYspDf6plKU76RKeVgITKWDiriTlKtedEP0hI=" defer></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Tags on Marc-Oliver Munz</title>
+		<link>https://blog.munz4u.de/tags/</link>
+		<description>Recent content in Tags on Marc-Oliver Munz</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+			<copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+		
+		
+			<lastBuildDate>Wed, 15 Nov 2023 14:12:02 +0100</lastBuildDate>
+		
+			<atom:link href="https://blog.munz4u.de/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Cve</title>
+				<link>https://blog.munz4u.de/tags/cve/</link>
+				<pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/cve/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Rce</title>
+				<link>https://blog.munz4u.de/tags/rce/</link>
+				<pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/rce/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ssti</title>
+				<link>https://blog.munz4u.de/tags/ssti/</link>
+				<pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/ssti/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Velocity</title>
+				<link>https://blog.munz4u.de/tags/velocity/</link>
+				<pubDate>Wed, 15 Nov 2023 14:12:02 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/velocity/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Ato</title>
+				<link>https://blog.munz4u.de/tags/ato/</link>
+				<pubDate>Wed, 08 Mar 2023 12:00:00 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/ato/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Rxss</title>
+				<link>https://blog.munz4u.de/tags/rxss/</link>
+				<pubDate>Wed, 08 Mar 2023 12:00:00 +0100</pubDate>
+				<guid>https://blog.munz4u.de/tags/rxss/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>
