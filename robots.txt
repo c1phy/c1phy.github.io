@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://blog.munz4u.de/sitemap.xml

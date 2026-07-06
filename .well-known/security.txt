@@ -1,0 +1,6 @@
+# Security contact for blog.munz4u.de (RFC 9116)
+# Please report security issues regarding this website here.
+Contact: mailto:security@munz4u.de
+Preferred-Languages: de, en
+Canonical: https://blog.munz4u.de/.well-known/security.txt
+Expires: 2027-06-01T00:00:00.000Z

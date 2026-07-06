@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ato on Marc-Oliver Munz</title>
+		<link>https://blog.munz4u.de/tags/ato/</link>
+		<description>Recent content in Ato on Marc-Oliver Munz</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+			<copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+		
+		
+			<lastBuildDate>Wed, 08 Mar 2023 12:00:00 +0100</lastBuildDate>
+		
+			<atom:link href="https://blog.munz4u.de/tags/ato/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>CVE-2023-25295 ATO via rXSS in eVEWA3 Community</title>
+				<link>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</link>
+				<pubDate>Wed, 08 Mar 2023 12:00:00 +0100</pubDate>
+				<guid>https://blog.munz4u.de/posts/2023/03/cve-2023-25295-ato-via-rxss-in-evewa3-community/</guid>
+				<description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;a class=&#34;heading-anchor&#34; href=&#34;#tldr&#34; aria-label=&#34;Copy link to this section&#34; title=&#34;Copy link to this section&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;The GRÜN eVEWA Community versions 31 to 53 were susceptible to a reflected Cross-Site Scripting (rXSS) vulnerability in the login form. This vulnerability enables attackers to acquire escalated privileges by submitting a crafted request to the login panel. To address this issue, a security patch labeled &amp;ldquo;H1&amp;rdquo; has been applied across versions 31 to 53.&lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-findings&#34;&gt;Initial Findings&lt;a class=&#34;heading-anchor&#34; href=&#34;#initial-findings&#34; aria-label=&#34;Copy link to this section&#34; title=&#34;Copy link to this section&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;During my investigation of a domain, I stumbled upon a GRÜN eVEWA site. During my examination of the endpoints, I identified vulnerable rXSS file parameters in the following locations:&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>
